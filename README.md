@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # TempVision Backend
 
 Spring Boot 3.5 / Java 21 backend for the TempVision weather dashboard.
@@ -103,3 +104,7 @@ backend/
 4. React + Tailwind frontend
 5. Dashboard, favorites, search history
 6. Deployment (Railway/Render + Vercel/Netlify)
+=======
+# Temp-Vision
+Temprature chack
+>>>>>>> 15f2805fcc0a606722bb2780fe05c226d615cfb0
