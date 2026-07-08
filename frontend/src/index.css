@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight;
+  }
+  :focus-visible {
+    @apply outline outline-2 outline-offset-2 outline-secondary;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/60 dark:bg-white/5 backdrop-blur-glass border border-white/40 dark:border-white/10 shadow-glass rounded-2xl;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-primary/90 focus-visible:outline-2;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300/60 dark:border-white/15 px-5 py-2.5 text-sm font-semibold text-slate-700 dark:text-slate-200 transition hover:bg-slate-100 dark:hover:bg-white/5;
+  }
+
+  .stat-figure {
+    @apply font-data text-3xl font-medium tabular-nums;
+  }
+
+  .section-eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.2em] text-secondary;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
