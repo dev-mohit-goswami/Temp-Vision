@@ -1,110 +1,279 @@
-<<<<<<< HEAD
-# TempVision Backend
+# 🌤️ Temp-Vision
 
-Spring Boot 3.5 / Java 21 backend for the TempVision weather dashboard.
-Module 1 (project setup + MySQL) and Module 2 (JWT authentication) from the project plan.
+<div align="center">
 
-## What's included
+![Java](https://img.shields.io/badge/Java-21-orange?style=for-the-badge&logo=openjdk)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.5-green?style=for-the-badge&logo=springboot)
+![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react)
+![Vite](https://img.shields.io/badge/Vite-Frontend-646CFF?style=for-the-badge&logo=vite)
+![MySQL](https://img.shields.io/badge/MySQL-Database-blue?style=for-the-badge&logo=mysql)
+![JWT](https://img.shields.io/badge/JWT-Authentication-black?style=for-the-badge)
 
-- Spring Boot project skeleton (Maven, Java 21)
-- MySQL datasource configuration (auto-creates the `tempvision` schema on first run)
-- JWT authentication: register + login, stateless sessions, BCrypt password hashing
-- Global exception handling with consistent JSON error responses
-- CORS configured for a local React dev server (Vite: `:5173`, CRA: `:3000`)
-- Swagger/OpenAPI UI at `/swagger-ui.html`
-- Health check endpoint at `/api/health`
+### A Modern Full Stack Weather Dashboard
 
-## Prerequisites
+Real-time weather forecasts, authentication, favorite cities, weather history, air quality, interactive maps, and analytics.
 
-- Java 21 (JDK)
-- Maven 3.9+ (or use the included `mvnw` if you add the wrapper)
-- MySQL 8.x running locally (or accessible remotely)
+</div>
 
-## Setup
+---
 
-1. **Create/point to a MySQL instance.** The app will auto-create the `tempvision`
-   database on first run (`createDatabaseIfNotExist=true`), but MySQL itself must be running.
+# 📌 Features
 
-2. **Update credentials** in `src/main/resources/application.properties`:
-   ```properties
-   spring.datasource.username=root
-   spring.datasource.password=your_mysql_password
-   ```
-   Also replace `jwt.secret` with your own generated Base64 secret before any real/production use.
+### 🌦 Weather
+- Current Weather
+- 7-Day Forecast
+- Hourly Forecast
+- Weather History
+- Favorite Cities
+- Air Quality Index
+- Weather Maps
+- Temperature Analytics
 
-3. **Run the app:**
-   ```bash
-   mvn spring-boot:run
-   ```
-   The API starts on `http://localhost:8080`.
+### 🔐 Authentication
+- JWT Authentication
+- User Registration
+- Secure Login
+- Protected Routes
+- Password Encryption
 
-4. **Verify it's alive:**
-   ```bash
-   curl http://localhost:8080/api/health
-   ```
+### 👤 User Features
+- User Profile
+- Dashboard
+- Settings
+- Theme Toggle (Dark/Light)
 
-## Endpoints so far
+### 📊 Dashboard
+- Analytics Charts
+- Interactive Cards
+- Responsive Design
+- Modern UI
 
-| Method | Endpoint             | Auth required | Description          |
-|--------|-----------------------|----------------|-----------------------|
-| GET    | `/api/health`         | No             | Health check          |
-| POST   | `/api/auth/register`  | No             | Register a new user   |
-| POST   | `/api/auth/login`     | No             | Log in, get JWT pair  |
+---
 
-### Register example
+# 🛠 Tech Stack
+
+## Frontend
+
+- React
+- Vite
+- React Router
+- Axios
+- Tailwind CSS
+- React Icons
+
+## Backend
+
+- Java 21
+- Spring Boot 3.5
+- Spring Security
+- Spring Data JPA
+- JWT
+- MySQL
+- Maven
+
+---
+
+# 📂 Project Structure
+
+```
+Temp-Vision/
+│
+├── backend/
+│   ├── src/
+│   ├── pom.xml
+│   └── application.properties
+│
+├── frontend/
+│   ├── src/
+│   ├── public/
+│   ├── package.json
+│   └── vite.config.js
+│
+└── README.md
+```
+
+---
+
+# 🚀 Getting Started
+
+## Clone Repository
 
 ```bash
-curl -X POST http://localhost:8080/api/auth/register \
-  -H "Content-Type: application/json" \
-  -d '{
-    "fullName": "Jane Doe",
-    "email": "[email protected]",
-    "password": "SuperSecret123"
-  }'
+git clone https://github.com/dev-mohit-goswami/Temp-Vision.git
 ```
-
-### Login example
 
 ```bash
-curl -X POST http://localhost:8080/api/auth/login \
-  -H "Content-Type: application/json" \
-  -d '{
-    "email": "[email protected]",
-    "password": "SuperSecret123"
-  }'
+cd Temp-Vision
 ```
 
-Both return an `accessToken` and `refreshToken`. Send the access token on
-protected routes as:
+---
 
-```
-Authorization: Bearer <accessToken>
-```
+# ⚙ Backend Setup
 
-## Project structure
-
-```
-backend/
-├── src/main/java/com/tempvision/
-│   ├── config/         # Security + CORS configuration
-│   ├── controller/      # REST controllers (Auth, Health)
-│   ├── dto/              # Request/response payloads
-│   ├── entity/           # JPA entities (User, Role)
-│   ├── repository/       # Spring Data JPA repositories
-│   ├── security/         # JWT util + auth filter
-│   ├── service/           # Business logic (AuthService, UserDetailsService)
-│   ├── exception/         # Custom exceptions + global handler
-│   └── TempVisionApplication.java
-└── pom.xml
+```bash
+cd backend
 ```
 
-## Next modules (per the project plan)
+### Configure Database
 
-3. Weather API integration (Open-Meteo / OpenWeather / OpenAQ)
-4. React + Tailwind frontend
-5. Dashboard, favorites, search history
-6. Deployment (Railway/Render + Vercel/Netlify)
-=======
-# Temp-Vision
-Temprature chack
->>>>>>> 15f2805fcc0a606722bb2780fe05c226d615cfb0
+Update:
+
+```
+src/main/resources/application.properties
+```
+
+Example
+
+```properties
+spring.datasource.url=jdbc:mysql://localhost:3306/tempvision
+spring.datasource.username=root
+spring.datasource.password=your_password
+```
+
+Run Backend
+
+```bash
+mvn clean install
+```
+
+```bash
+mvn spring-boot:run
+```
+
+Backend runs on
+
+```
+http://localhost:8080
+```
+
+---
+
+# 💻 Frontend Setup
+
+```bash
+cd frontend
+```
+
+Install packages
+
+```bash
+npm install
+```
+
+Run project
+
+```bash
+npm run dev
+```
+
+Frontend runs on
+
+```
+http://localhost:5173
+```
+
+---
+
+# 🔒 Authentication
+
+- Register
+- Login
+- JWT Token
+- Secure APIs
+- Protected Routes
+
+---
+
+# 📸 Screenshots
+
+```
+Add screenshots here
+```
+
+Example
+
+```
+Home Page
+
+Dashboard
+
+Login
+
+Forecast
+
+Profile
+
+Weather Map
+```
+
+---
+
+# 📡 REST APIs
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| POST | /api/auth/register | Register User |
+| POST | /api/auth/login | Login |
+| GET | /api/weather | Current Weather |
+| GET | /api/forecast | Forecast |
+| GET | /api/history | Weather History |
+
+---
+
+# 🌍 Future Improvements
+
+- Email Verification
+- Password Reset
+- Push Notifications
+- PWA Support
+- Docker Deployment
+- Kubernetes
+- Redis Cache
+- CI/CD Pipeline
+
+---
+
+# 🤝 Contributing
+
+Contributions are welcome!
+
+1. Fork Repository
+2. Create Feature Branch
+3. Commit Changes
+4. Push Branch
+5. Create Pull Request
+
+---
+
+# 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+# 👨‍💻 Developer
+
+### Mohit Goswami
+
+Full Stack Java Developer
+
+- Java
+- Spring Boot
+- React
+- MySQL
+- REST APIs
+- JWT Authentication
+
+GitHub
+
+https://github.com/dev-mohit-goswami
+
+---
+
+<div align="center">
+
+⭐ Star this repository if you found it helpful!
+
+Made with ❤️ by Mohit Goswami
+
+</div>
